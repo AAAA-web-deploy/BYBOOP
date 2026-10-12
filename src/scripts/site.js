@@ -50,8 +50,8 @@ if (canvas && buttons.length) {
     const words = text.trim(); if(!words) return;
     const available=770;
     let size=70;
-    ctx.font=`900 ${size}px Impact, 'Arial Black', sans-serif`;
-    while(size>34 && linesFor(words,available,size).length>3){size-=4;ctx.font=`900 ${size}px Impact, 'Arial Black', sans-serif`;}
+    ctx.font=`900 ${size}px 'Arial Black', Arial, sans-serif`;
+    while(size>34 && linesFor(words,available,size).length>3){size-=4;ctx.font=`900 ${size}px 'Arial Black', Arial, sans-serif`;}
     const rows=linesFor(words,available,size);
     const step=size*1.12;
     const start=isTop?90:805-(rows.length-1)*step;
