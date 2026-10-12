@@ -1,6 +1,6 @@
 /** Fill in VERIFIED values after token deployment. Leave unknown values null. */
 export const site = {
-  name: 'BYBOOP',
+  name: 'BYBIT MEOW',
   ticker: '$BYBOOP',
   network: 'Ethereum Mainnet',
   contract: null as string | null,
@@ -17,5 +17,5 @@ export const site = {
     uniswap: null as string | null,
   },
   /** Only edit this statement if real third-party association exists and is documented. */
-  disclaimer: 'BYBOOP is an independent fictional meme project inspired by AI trading culture. Not affiliated with, sponsored by, or endorsed by Bybit or its products.',
+  disclaimer: 'BYBIT MEOW is an independent fictional meme project inspired by AI trading culture. Not affiliated with, sponsored by, or endorsed by Bybit or its products.',
 };

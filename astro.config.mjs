@@ -1,2 +1,6 @@
 import { defineConfig } from 'astro/config';
-export default defineConfig({ output: 'static', build: { inlineStylesheets: 'auto' } });
+export default defineConfig({
+  site: 'https://byboop.shop',
+  output: 'static',
+  build: { inlineStylesheets: 'auto' },
+});
