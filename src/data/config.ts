@@ -3,7 +3,7 @@ export const site = {
   name: 'ByBit MEOW',
   ticker: '$BYBOOP',
   network: 'Ethereum Mainnet',
-  contract: null as string | null,
+  contract: '0x22a4193c4319faaaed90bf9210af498e91a204a2',
   supply: '1,000,000,000',
   buyTax: '0%',
   sellTax: '0%',
