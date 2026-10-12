@@ -125,13 +125,44 @@ document.getElementById('back-to-top')?.addEventListener('click',scrollToFirstPa
 document.getElementById('brand-home')?.addEventListener('click',scrollToFirstPage);
 const copyButton=document.getElementById('copy-contract');
 const copyIcon=copyButton?.innerHTML;
-copyButton?.addEventListener('click',async()=>{
-  const address=copyButton.dataset.address;
-  if(!address || !/^0x[a-fA-F0-9]{40}$/.test(address))return;
+const checkIcon='<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M9.2 16.6 4.8 12.2l1.6-1.6 2.8 2.8 6.4-6.4 1.6 1.6-8 8Z"/></svg>';
+function writeClipboard(text){
   try{
-    await navigator.clipboard.writeText(address);
-    copyButton.classList.add('copied');
-    copyButton.innerHTML='<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M9.2 16.6 4.8 12.2l1.4-1.4 3 3 8.6-8.6 1.4 1.4-10 10Z"/></svg>';
-    setTimeout(()=>{copyButton.classList.remove('copied');copyButton.innerHTML=copyIcon;},1400);
+    const area=document.createElement('textarea');
+    area.value=text;
+    area.setAttribute('readonly','');
+    area.style.position='fixed';
+    area.style.top='0';
+    area.style.left='0';
+    area.style.opacity='0';
+    document.body.appendChild(area);
+    area.focus();
+    area.select();
+    area.setSelectionRange(0,text.length);
+    const ok=document.execCommand('copy');
+    area.remove();
+    if(ok)return true;
   }catch{}
+  if(navigator.clipboard?.writeText){
+    return navigator.clipboard.writeText(text).then(()=>true).catch(()=>false);
+  }
+  return false;
+}
+function showCopied(){
+  copyButton.classList.add('copied');
+  copyButton.innerHTML=checkIcon;
+  clearTimeout(copyButton._reset);
+  copyButton._reset=setTimeout(()=>{
+    copyButton.classList.remove('copied');
+    copyButton.innerHTML=copyIcon;
+  },1600);
+}
+copyButton?.addEventListener('click',()=>{
+  const address=(copyButton.dataset.address || '').trim();
+  if(!/^0x[a-fA-F0-9]{40}$/.test(address))return;
+  const result=writeClipboard(address);
+  if(result===true){showCopied();return;}
+  if(result && typeof result.then==='function'){
+    result.then((ok)=>{if(ok)showCopied();});
+  }
 });

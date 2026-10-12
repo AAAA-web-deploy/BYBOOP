@@ -10,8 +10,8 @@ export const site = {
   liquidityStatus: 'LP burn',
   ownershipStatus: 'Renounce',
   links: {
-    x: null as string | null,
-    telegram: null as string | null,
+    x: 'https://x.com/byboopmeow',
+    telegram: 'https://t.me/byboopmeow',
     dexScreener: null as string | null,
     etherscan: null as string | null,
     uniswap: null as string | null,
