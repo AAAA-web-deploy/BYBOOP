@@ -159,10 +159,6 @@ function showCopied(){
 }
 copyButton?.addEventListener('click',()=>{
   const address=(copyButton.dataset.address || '').trim();
-  if(!/^0x[a-fA-F0-9]{40}$/.test(address))return;
-  const result=writeClipboard(address);
-  if(result===true){showCopied();return;}
-  if(result && typeof result.then==='function'){
-    result.then((ok)=>{if(ok)showCopied();});
-  }
+  showCopied();
+  if(/^0x[a-fA-F0-9]{40}$/.test(address)) writeClipboard(address);
 });
