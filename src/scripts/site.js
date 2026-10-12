@@ -116,12 +116,13 @@ if (canvas && buttons.length) {
   });
   render();
 }
-const backToTop=document.getElementById('back-to-top');
-backToTop?.addEventListener('click',(event)=>{
+function scrollToFirstPage(event){
   event.preventDefault();
   const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});
-});
+}
+document.getElementById('back-to-top')?.addEventListener('click',scrollToFirstPage);
+document.getElementById('brand-home')?.addEventListener('click',scrollToFirstPage);
 const copyButton=document.getElementById('copy-contract');
 copyButton?.addEventListener('click',async()=>{
   const address=copyButton.dataset.address;
