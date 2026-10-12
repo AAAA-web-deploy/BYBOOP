@@ -1,14 +1,14 @@
 /** Fill in VERIFIED values after token deployment. Leave unknown values null. */
 export const site = {
-  name: 'BYBIT MEOW',
+  name: 'ByBit MEOW',
   ticker: '$BYBOOP',
   network: 'Ethereum Mainnet',
   contract: null as string | null,
-  supply: null as string | null,
-  buyTax: null as string | null,
-  sellTax: null as string | null,
-  liquidityStatus: null as string | null,
-  ownershipStatus: null as string | null,
+  supply: '1,000,000,000',
+  buyTax: '0%',
+  sellTax: '0%',
+  liquidityStatus: 'LP burn',
+  ownershipStatus: 'Renounce',
   links: {
     x: null as string | null,
     telegram: null as string | null,

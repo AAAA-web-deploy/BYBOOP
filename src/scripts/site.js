@@ -124,9 +124,14 @@ function scrollToFirstPage(event){
 document.getElementById('back-to-top')?.addEventListener('click',scrollToFirstPage);
 document.getElementById('brand-home')?.addEventListener('click',scrollToFirstPage);
 const copyButton=document.getElementById('copy-contract');
+const copyIcon=copyButton?.innerHTML;
 copyButton?.addEventListener('click',async()=>{
   const address=copyButton.dataset.address;
   if(!address || !/^0x[a-fA-F0-9]{40}$/.test(address))return;
-  try{await navigator.clipboard.writeText(address);copyButton.textContent='COPIED ✓';}
-  catch{copyButton.textContent='SELECT THE CONTRACT ABOVE';}
+  try{
+    await navigator.clipboard.writeText(address);
+    copyButton.classList.add('copied');
+    copyButton.innerHTML='<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M9.2 16.6 4.8 12.2l1.4-1.4 3 3 8.6-8.6 1.4 1.4-10 10Z"/></svg>';
+    setTimeout(()=>{copyButton.classList.remove('copied');copyButton.innerHTML=copyIcon;},1400);
+  }catch{}
 });
