@@ -111,7 +111,7 @@ const isContract = Boolean(site.contract && /^0x[a-fA-F0-9]{40}$/.test(site.cont
         </section>
 
         <section class="memes section-pad" id="memes" aria-labelledby="memes-heading">
-          <div class="section-intro"><h2 id="memes-heading">EIGHT FACES.<br/><span>ZERO CONTROL.</span></h2><p>Grab a reaction image, remix it, or send it to the friend who bought the top.</p></div>
+          <div class="section-intro"><h2 id="memes-heading">EIGHT FACES.<span>ZERO CONTROL.</span></h2><p>Grab a reaction image, remix it, or send it to the friend who bought the top.</p></div>
           <div class="sticker-wall">{moods.map((m,i) => <article class:list={['sticker-card',`sticker-${i}`]}><div class="sticker-head"><span>#{String(i+1).padStart(2,'0')}</span><span>{m.title}</span></div><img src={`/assets/stickers/${m.id}.webp`} alt={`BYBOOP expression: ${m.title.toLowerCase()}`} loading="lazy" width="660" height="660" decoding="async"/><div class="sticker-bottom"><span>{m.subtitle}</span><a href={`/assets/downloads/${m.id}.png`} download={`BYBOOP-${m.id}.png`} aria-label={`Download ${m.title} BYBOOP sticker`}>SAVE ↓</a></div></article>)}</div>
         </section>
 
