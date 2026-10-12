@@ -1,0 +1,131 @@
+---
+import '../styles/global.css';
+import { site } from '../data/config';
+const moods = [
+  { id: 'smug', title: 'SMUG', subtitle: 'one green candle' },
+  { id: 'euphoric', title: 'EUPHORIC', subtitle: 'genius (apparently)' },
+  { id: 'panic', title: 'PANIC', subtitle: 'a perfectly normal dip' },
+  { id: 'crying', title: 'CRYING', subtitle: 'the chart has feelings' },
+  { id: 'angry', title: 'ANGRY', subtitle: 'risk management??' },
+  { id: 'suspicious', title: 'SUS', subtitle: 'source: trust meow' },
+  { id: 'exhausted', title: 'REKT', subtitle: 'market never sleeps' },
+  { id: 'in-love', title: 'IN LOVE', subtitle: 'the ETH-shaped pupils' },
+];
+const isContract = Boolean(site.contract && /^0x[a-fA-F0-9]{40}$/.test(site.contract));
+const external = Object.entries(site.links).filter(([_,url]) => typeof url === 'string' && url.startsWith('https://'));
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+    <meta name="theme-color" content="#f7f0df" />
+    <meta name="description" content="Meet BYBOOP: the supposedly intelligent cat who learned every bad habit of human traders. Make memes, pick an emotion, and join the chaos." />
+    <meta property="og:title" content="BYBOOP — Artificial intelligence. Natural FOMO." />
+    <meta property="og:description" content="It learned to trade. Then it learned traders." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/og-byboop.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preload" href="/assets/hero-chaos.webp" as="image" fetchpriority="high" />
+    <title>BYBOOP | The AI That Caught FOMO</title>
+  </head>
+  <body>
+    <div class="site-shell">
+      <a class="skip-link" href="#main">Skip to content</a>
+      <header class="topbar" id="top">
+        <a href="#top" class="brand" aria-label="BYBOOP homepage"><span class="brand-star">✳</span> BYBOOP<span class="brand-dot">.</span></a>
+        <nav aria-label="Main" class="desktop-nav">
+          <a href="#lore">the lore</a><a href="#mood-lab">mood lab</a><a href="#memes">memes</a><a href="#token">the token</a>
+        </nav>
+        <a class="top-cta" href="#mood-lab">MAKE A MEME <span>↗</span></a>
+      </header>
+      <main id="main">
+        <section class="hero paper-section" aria-labelledby="hero-title">
+          <div class="hero-doodles" aria-hidden="true">✷ <span>↗</span> ✳</div>
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="blinking"></span> AI EXPERIMENT #0001 • ETHEREUM</p>
+            <h1 id="hero-title">THE AI<br />THAT <em>CAUGHT</em><br /><strong>FOMO.</strong></h1>
+            <p class="hero-lead">They built an AI to trade without emotions.<br /><b>Then it met crypto traders.</b></p>
+            <div class="hero-actions"><a class="btn btn-ink" href="#lore">MEET THE PROBLEM <span>↘</span></a><a class="btn btn-outline" href="#mood-lab">MAKE A MEME ↗</a></div>
+            <div class="hero-scribble">99.9% artificial intelligence. <span>100% bad instincts.</span></div>
+          </div>
+          <div class="hero-art-wrap">
+            <div class="hero-stamp stamp-blue">CERTIFIED<br/>EMOTIONAL<br/>MACHINE</div>
+            <img class="hero-art" src="/assets/hero-chaos.webp" alt="BYBOOP, a fluffy white cat wearing a blue propeller hat and Ethereum necklace, causing comic chaos at a trading desk" width="1648" height="928" fetchpriority="high" />
+            <div class="hero-sticker" aria-hidden="true">BUY<br/>THE<br/>DIP?!</div>
+            <div class="corner-tape"></div>
+          </div>
+          <div class="hero-edge-note">SCROLL FOR THE WORST TRAINING DATA ↓</div>
+        </section>
+
+        <div class="ticker-band" aria-label="BYBOOP slogan"><div class="ticker-track" aria-hidden="true">AI LEARNED TRADING ✳ THEN IT LEARNED TRADERS ✳ AI LEARNED TRADING ✳ THEN IT LEARNED TRADERS ✳ AI LEARNED TRADING ✳ THEN IT LEARNED TRADERS ✳</div></div>
+
+        <section class="lore section-pad" id="lore" aria-labelledby="lore-heading">
+          <div class="section-intro">
+            <p class="eyebrow">01 / ORIGIN OF A VERY BAD IDEA</p>
+            <h2 id="lore-heading">A SMART CAT.<br /><span>BAD TEACHERS.</span></h2>
+            <p>Three chapters. One questionable training dataset. No long whitepaper required.</p>
+          </div>
+          <div class="comic-story">
+            <article class="comic-card comic-one">
+              <div class="comic-image"><img src="/assets/story/the-training.webp" alt="A human teaches a serious young BYBOOP to read crypto trading charts" width="680" height="928" loading="lazy" decoding="async"/><span class="comic-number">01</span></div>
+              <div class="comic-caption"><span class="comic-rubric">INITIALLY...</span><h3>VERY SMART.<br/>VERY NORMAL.</h3><p>It could read a thousand charts without blinking. Incredible potential.</p></div>
+            </article>
+            <article class="comic-card comic-two">
+              <div class="comic-image"><img src="/assets/story/the-influence.webp" alt="BYBOOP joins loud human traders who celebrate charts, shouting and making ridiculous decisions" width="680" height="928" loading="lazy" decoding="async"/><span class="comic-number">02</span></div>
+              <div class="comic-caption"><span class="comic-rubric">ONE WEEK LATER...</span><h3>IT LEARNED<br/>FROM US.</h3><p>The dataset contained FOMO, hopium, revenge trading, and 3 a.m. opinions.</p></div>
+            </article>
+            <article class="comic-card comic-three">
+              <div class="comic-image"><img src="/assets/story/the-transformation.webp" alt="An overconfident BYBOOP presses the trade button atop computers while human traders react chaotically" width="680" height="928" loading="lazy" decoding="async"/><span class="comic-number">03</span></div>
+              <div class="comic-caption"><span class="comic-rubric">CURRENT STATUS...</span><h3>NOW IT'S<br/>ONE OF US.</h3><p>Zero chill. Unlimited conviction. Humans still ask it what to buy.</p></div>
+            </article>
+          </div>
+          <div class="lore-punchline"><span>THE PLOT TWIST:</span><strong>THE HUMANS CALL THIS “AN UPGRADE.”</strong><span class="wavy">〰〰〰</span></div>
+        </section>
+
+        <section class="diagnosis section-pad" aria-labelledby="diagnosis-heading">
+          <div class="diagnosis-copy"><p class="eyebrow">02 / THE COMPLETELY REAL FAKE DIAGNOSIS</p><h2 id="diagnosis-heading">BIG BRAIN.<br/><span>NO CHILL.</span></h2><p>BYBOOP doesn't have a trading strategy. BYBOOP has a personality disorder called “being on Crypto Twitter.”</p><a href="#mood-lab" class="underlink">RUN THE EMOTION TEST ↗</a></div>
+          <div class="diagnosis-posters"><div class="diagnosis-shape">INTELLIGENCE <b>MAX</b><span>↗</span></div><div class="diagnosis-shape shape-red">PATIENCE <b>0</b><span>↘</span></div><div class="diagnosis-shape shape-yellow">CONFIDENCE <b>∞</b><span>↑</span></div><img class="diagnosis-cat" src="/assets/stickers/smug.webp" alt="BYBOOP the cat looking extremely smug" width="660" height="660" loading="lazy" /></div>
+        </section>
+
+        <section class="mood-lab section-pad" id="mood-lab" aria-labelledby="lab-heading">
+          <div class="section-intro dark-intro"><p class="eyebrow">03 / INTERACTIVE EXPERIMENT</p><h2 id="lab-heading">WHAT'S YOUR<br/><em>MEOWD?</em></h2><p>Pick BYBOOP's face. Write the joke. Make a meme. Send it to the group chat.</p></div>
+          <div class="lab-container">
+            <div class="lab-controls">
+              <p class="micro-heading">1 — CHOOSE YOUR STATE OF MIND</p>
+              <div class="mood-options" role="group" aria-label="Choose BYBOOP mood">
+                {moods.map((m,index) => <button type="button" class:list={['mood-option',{'selected':index===0}]} data-mood={m.id} aria-pressed={index===0 ? 'true' : 'false'}><img src={`/assets/stickers/${m.id}.webp`} alt="" width="660" height="660" loading="lazy" /><span>{m.title}</span></button>)}
+              </div>
+              <p class="micro-heading" style="margin-top:22px">2 — ADD THE INTERNAL MONOLOGUE</p>
+              <label for="meme-top" class="form-label">TOP TEXT</label>
+              <input id="meme-top" class="meme-input" maxlength="90" value="I HAD A PLAN" autocomplete="off" />
+              <label for="meme-bottom" class="form-label">BOTTOM TEXT</label>
+              <input id="meme-bottom" class="meme-input" maxlength="90" value="THEN I SAW A GREEN CANDLE" autocomplete="off" />
+              <button type="button" class="surprise-btn" id="surprise-me">🎲 GIVE ME A BAD IDEA</button>
+              <p class="micro-hint">Meme creation happens in your browser. Nothing is uploaded.</p>
+            </div>
+            <div class="lab-output"><div class="poster-note">PREVIEW / 001 <span>NOT FINANCIAL ADVICE LOL</span></div><canvas id="meme-canvas" width="900" height="900" role="img" aria-label="Preview of generated BYBOOP meme"></canvas><div class="lab-actions"><button type="button" id="download-meme" class="btn btn-lime">↓ SAVE MEME PNG</button><button type="button" id="share-meme" class="btn btn-outline-light">↗ SHARE / COPY</button></div><p id="lab-status" class="lab-status" role="status" aria-live="polite">SELECT A MOOD TO START</p></div>
+          </div>
+        </section>
+
+        <section class="memes section-pad" id="memes" aria-labelledby="memes-heading">
+          <div class="section-intro"><p class="eyebrow">04 / BYBOOP'S EMOTIONAL DAMAGE COLLECTION</p><h2 id="memes-heading">EIGHT FACES.<br/><span>ZERO CONTROL.</span></h2><p>Grab a reaction image, remix it, or send it to the friend who bought the top.</p></div>
+          <div class="sticker-wall">{moods.map((m,i) => <article class:list={['sticker-card',`sticker-${i}`]}><div class="sticker-head"><span>#{String(i+1).padStart(2,'0')}</span><span>{m.title}</span></div><img src={`/assets/stickers/${m.id}.webp`} alt={`BYBOOP expression: ${m.title.toLowerCase()}`} loading="lazy" width="660" height="660" decoding="async"/><div class="sticker-bottom"><span>{m.subtitle}</span><a href={`/assets/downloads/${m.id}.png`} download={`BYBOOP-${m.id}.png`} aria-label={`Download ${m.title} BYBOOP sticker`}>SAVE ↓</a></div></article>)}</div>
+        </section>
+
+        <section class="token section-pad" id="token" aria-labelledby="token-heading">
+          <div class="token-title"><p class="eyebrow">05 / THE ACTUAL TOKEN PART</p><h2 id="token-heading">SAY HI TO<br/><span>$BYBOOP.</span></h2><p>The mascot is emotional. The token information should be factual.</p></div>
+          <div class="token-desk"><div class="token-info"><div class="token-row"><span>NAME</span><b>{site.name}</b></div><div class="token-row"><span>TICKER</span><b>{site.ticker}</b></div><div class="token-row"><span>NETWORK</span><b>{site.network}</b></div><div class="token-row"><span>CONTRACT</span><b>{isContract ? site.contract : 'NOT PUBLISHED YET'}</b></div><div class="token-row"><span>TOKEN SUPPLY</span><b>{site.supply ?? 'TO BE CONFIRMED'}</b></div><div class="token-row"><span>TAX / LIQUIDITY</span><b>{site.buyTax && site.sellTax && site.liquidityStatus ? `${site.buyTax} BUY · ${site.sellTax} SELL · ${site.liquidityStatus}` : 'VERIFY AT LAUNCH'}</b></div><div class="token-row"><span>OWNERSHIP</span><b>{site.ownershipStatus ?? 'VERIFY AT LAUNCH'}</b></div>{isContract && <button id="copy-contract" class="btn btn-ink" data-address={site.contract}>COPY CONTRACT ADDRESS ↗</button>}</div><div class="token-illustration"><img src="/assets/stickers/euphoric.webp" alt="Extremely excited BYBOOP ready for meme chaos" width="660" height="660" loading="lazy" /><div class="token-doodle">VERY<br/>SERIOUS<br/>BUSINESS.</div></div></div>
+          <div class="token-footer"><p><b>SAFE LAUNCH RULE:</b> Never trust an address copied from a random reply. Confirm the contract from multiple official project sources once published.</p>{site.links.uniswap ? <a class="btn btn-ink" href={site.links.uniswap} target="_blank" rel="noopener noreferrer">OPEN VERIFIED SWAP ↗</a> : <span class="not-live">BUY LINK: NOT LIVE YET</span>}</div>
+        </section>
+
+        <section class="how-to section-pad" aria-labelledby="how-heading"><div><p class="eyebrow">06 / FOR HUMANS, NOT BOTS</p><h2 id="how-heading">THE<br/><span>LESS FUN</span><br/>INSTRUCTIONS.</h2></div><ol class="how-steps"><li><b>01 / GET A WALLET</b><span>Use a reputable Ethereum-compatible wallet. Secure your recovery phrase offline.</span></li><li><b>02 / HAVE ETH FOR GAS</b><span>Ethereum transactions require ETH for network fees. Double-check your network.</span></li><li><b>03 / VERIFY THE CONTRACT</b><span>Only use BYBOOP's independently verified official contract address after launch.</span></li><li><b>04 / READ THE RISKS</b><span>Meme tokens can lose their value. Never trade money you can't afford to lose.</span></li></ol></section>
+
+        <section class="finale section-pad" aria-labelledby="finale-heading"><img class="finale-cat" src="/assets/stickers/smug.webp" alt="BYBOOP smirking confidently" width="660" height="660" loading="lazy"/><div class="finale-text"><p class="eyebrow">THE INTERNET IS A BAD INFLUENCE.</p><h2 id="finale-heading">DON'T<br/><em>TEACH</em><br/>THE CAT.</h2><p>Actually, it's too late.</p><a href="#mood-lab" class="btn btn-lime">MAKE ONE MORE MEME ↗</a></div></section>
+      </main>
+      <footer class="footer"><div class="footer-top"><a href="#top" class="footer-brand">BYBOOP<span>™?</span></a><div class="footer-links">{external.length ? external.map(([name,url])=><a href={url!} target="_blank" rel="noopener noreferrer">{name.toUpperCase()} ↗</a>) : <span>OFFICIAL SOCIAL LINKS WILL APPEAR HERE WHEN VERIFIED.</span>}<a href="#top">BACK TO TOP ↑</a></div></div><p class="footer-disclaimer">{site.disclaimer} $BYBOOP is an experimental meme-token concept with no guaranteed value, returns, or trading capabilities. The character is fictional and the website's “AI” jokes are satire.</p><div class="footer-bottom"><span>© 2026 BYBOOP • BUILT WITH BAD JUDGMENT & GOOD MEMES.</span><span>NO TRACKERS. NO FAKE CHARTS. JUST A CAT.</span></div></footer>
+    </div>
+    <script>import '../scripts/site.js';</script>
+  </body>
+</html>
