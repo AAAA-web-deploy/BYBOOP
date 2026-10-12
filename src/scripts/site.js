@@ -123,8 +123,6 @@ function scrollToFirstPage(event){
 }
 document.getElementById('back-to-top')?.addEventListener('click',scrollToFirstPage);
 document.getElementById('brand-home')?.addEventListener('click',scrollToFirstPage);
-const copyButton=document.getElementById('copy-contract');
-const copyIcon=copyButton?.innerHTML;
 const checkIcon='<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M9.2 16.6 4.8 12.2l1.6-1.6 2.8 2.8 6.4-6.4 1.6 1.6-8 8Z"/></svg>';
 function writeClipboard(text){
   try{
@@ -148,17 +146,17 @@ function writeClipboard(text){
   }
   return false;
 }
-function showCopied(){
-  copyButton.classList.add('copied');
-  copyButton.innerHTML=checkIcon;
-  clearTimeout(copyButton._reset);
-  copyButton._reset=setTimeout(()=>{
-    copyButton.classList.remove('copied');
-    copyButton.innerHTML=copyIcon;
-  },1600);
-}
-copyButton?.addEventListener('click',()=>{
-  const address=(copyButton.dataset.address || '').trim();
-  showCopied();
-  if(/^0x[a-fA-F0-9]{40}$/.test(address)) writeClipboard(address);
+document.querySelectorAll('.copy-btn').forEach((button)=>{
+  const copyIcon=button.innerHTML;
+  button.addEventListener('click',()=>{
+    const address=(button.dataset.address || '').trim();
+    button.classList.add('copied');
+    button.innerHTML=checkIcon;
+    clearTimeout(button._reset);
+    button._reset=setTimeout(()=>{
+      button.classList.remove('copied');
+      button.innerHTML=copyIcon;
+    },1600);
+    if(/^0x[a-fA-F0-9]{40}$/.test(address)) writeClipboard(address);
+  });
 });
